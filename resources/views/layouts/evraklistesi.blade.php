@@ -51,9 +51,9 @@
 		<table class="table table-bordered table-striped dataTable" id="example1" aria-describedby="example1_info">
         <thead>
 			<tr role="row">
-				<th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 193px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Rendering engine</th>
-				<th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 267px;" aria-label="Browser: activate to sort column ascending">Browser</th>
-				<th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 246px;" aria-label="Platform(s): activate to sort column ascending">Platform(s)</th>
+				<th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 193px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Gönderen Kuruluş</th>
+				<th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 267px;" aria-label="Browser: activate to sort column ascending">İşlem Tarihi</th>
+				<th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 246px;" aria-label="Platform(s): activate to sort column ascending">Konu</th>
 				<th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 164px;" aria-label="Engine version: activate to sort column ascending">Engine version</th>
 				<th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 114px;" aria-label="CSS grade: activate to sort column ascending">CSS grade</th>
 			</tr>
@@ -68,18 +68,11 @@
 			</tr>
         </tfoot>
       <tbody role="alert" aria-live="polite" aria-relevant="all">
-		<tr class="odd">
-			<td class="  sorting_1">Gecko</td>
-			<td class=" ">Firefox 1.0</td>
-			<td class=" ">Win 98+ / OSX.2+</td>
-			<td class=" ">1.7</td>
-			<td class=" ">A</td>
-        </tr>
-		@foreach (gelen as evrak)
+		@foreach ($gelenler as $evrak)
 		<tr class="even">
-			<td class="  sorting_1">{{ evrak->gonderen_kurulus }}</td>
-			<td class=" ">Firefox 1.5</td>
-			<td class=" ">Win 98+ / OSX.2+</td>
+			<td class="  sorting_1"> {{ $evrak->gonderen_kurulus }} </td>
+			<td class=" "> {{ date("d-m-Y", strtotime($evrak->gelis_tarihi)) }}</td>
+			<td class=" ">{{ $evrak->konu }}</td>
 			<td class=" ">1.8</td>
 			<td class=" ">A</td>
 		</tr>
