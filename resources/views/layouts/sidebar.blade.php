@@ -21,20 +21,15 @@
 <!-- /.search form -->
 <!-- sidebar menu: : style can be found in sidebar.less -->
 <ul class="sidebar-menu">
-    <li class="header">MAIN NAVIGATION</li>
+    <li class="header">ANA MENÜ</li>
     <li class="active treeview">
     <a href="#">
-      <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
+      <i class="fa fa-dashboard"></i> <span>EVRAK TAKİP</span> <i class="fa fa-angle-left pull-right"></i>
     </a>
     <ul class="treeview-menu">
       <li><a href="index2.html">Giden Evrak <i class="fa  fa-level-up text-danger pull-right"></i></a></li>
       <li class="active"><a href="index.html">Gelen Evrak <i class="fa  fa-level-down text-success pull-right"></i></a></li>
     </ul>
-    </li>
-    <li>
-        <a class="btn btn-app">
-            <i class="fa fa-edit"></i> Edit
-        </a>
     </li>
 <!--
   <li class="header">MAIN NAVIGATION</li>

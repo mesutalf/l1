@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use View;
+use DB;
 
 class GelenController extends Controller {
 
@@ -16,7 +17,8 @@ class GelenController extends Controller {
 	public function index()
 	{
 		//
-            return View::make("layouts.evraklistesi");
+		$gelen = DB::table("gelen_evrak")->skip(10)->take(5)->get();
+            return View::make("layouts.evraklistesi")->with('gelen', $gelen);
 	}
 
 	/**
