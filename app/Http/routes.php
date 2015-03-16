@@ -13,7 +13,7 @@
 
 Route::get('/', 'SiteController@index');
 
-Route::get('gelen', 'GelenController@index');
+Route::resource('gelen', 'GelenController');
 
 Route::controllers([
 //	'auth' => 'Auth\AuthController',

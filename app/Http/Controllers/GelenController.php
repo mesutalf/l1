@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Input;
 use View;
 use DB;
 
@@ -17,14 +18,12 @@ class GelenController extends Controller {
 	public function index()
 	{
 		//
-		$gelen = DB::table("gelen_evrak")->select("gelis_tarihi", "gonderen_kurulus", "gonderen_kisi", "konu", "evrak_no")
+		$gelenler = DB::table("gelen_evrak")->select("gelen_evrak_id", "gelis_tarihi", "gonderen_kurulus", "gonderen_kisi", "konu", "evrak_no")
 		->orderBy('gelis_tarihi', 'desc')
 		->skip(10)
 		->take(10)
 		->get();
-//		$gelen = DB::table("gelen_evrak")->skip(10)->take(10)->get();
-//		$gelen = DB::select('SELECT DATE_FORMAT(gelis_tarihi, '%d-%m-%Y') AS gtarih, gonderen_kurulus, gonderen_kisi, konu, evrak_no FROM gelen_evrak);
-        return View::make("layouts.evraklistesi")->with('gelenler', $gelen);
+            return View::make("layouts.evraklistesi")->with('gelenler', $gelenler);
 	}
 
 	/**
@@ -45,6 +44,8 @@ class GelenController extends Controller {
 	public function store()
 	{
 		//
+            $gelenEvrak = Input::all();
+            return $gelenEvrak;
 	}
 
 	/**
@@ -56,6 +57,11 @@ class GelenController extends Controller {
 	public function show($id)
 	{
 		//
+            $evrak = DB::table("gelen_evrak")->select("gelis_tarihi", "gonderen_kurulus", "gonderen_kisi", "konu", "evrak_no")
+                ->where('gelen_evrak_id','=', $id)
+		->first();
+
+            return View::make("layouts.evrakgoster")->with('evrak', $evrak);
 	}
 
 	/**

@@ -2,6 +2,7 @@
 <html>
   <head>
     @include("layouts.head")
+    @include("layouts.scripts")
   </head>
   <body class="skin-blue">
     <div class="wrapper">
@@ -26,7 +27,8 @@
         </section>
         <section class="content">
             @yield("evraklistesi")
-			@yield("content")
+            @yield("evrakgoster")
+            @yield("content")
         </section>
       </div>
       <footer class="main-footer">
@@ -36,6 +38,6 @@
         <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
       </footer>
     </div>
-	@include("layouts.scripts")
+
   </body>
 </html>
